@@ -1,0 +1,286 @@
+{
+	"id": "b533b04d-f35f-49fc-b2f1-b0bc8d8fa7a6",
+	"name": "Test TRELLO REST APIs",
+	"timestamp": "2022-09-01T00:26:41.859Z",
+	"collection_id": "a3da1dbf-7bf3-43d1-91da-493b048263e2",
+	"folder_id": 0,
+	"environment_id": "55288d8b-5e7f-4364-930b-4a4bb56e1b83",
+	"totalPass": 15,
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "5f6dddf1-ee5a-4470-a96c-cb14ff30b5d4",
+			"name": "first Trello API",
+			"url": "https://api.trello.com/1/members/me?key=2ad662f7bb7b15d002a47937f855f462&token=12b294f47feb8ef6dc3092fbc4f76fe03a22edb5447a7ca26b2218daa1166bf6",
+			"time": 658,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				658
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6941a0a8-00bc-4b98-84e1-f79661212759",
+			"name": "Create Board",
+			"url": "https://api.trello.com/1/boards/?name=QUaxg&key=2ad662f7bb7b15d002a47937f855f462&token=12b294f47feb8ef6dc3092fbc4f76fe03a22edb5447a7ca26b2218daa1166bf6",
+			"time": 404,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Created Board with name QUaxg is open ": true,
+				"Premission level of Board with name QUaxg is private ": true,
+				"Created Board with name QUaxg Can Be Public ": true,
+				"Created Board with name QUaxg Can Invite ": true
+			},
+			"testPassFailCounts": {
+				"Created Board with name QUaxg is open ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Premission level of Board with name QUaxg is private ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Created Board with name QUaxg Can Be Public ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Created Board with name QUaxg Can Invite ": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				404
+			],
+			"allTests": [
+				{
+					"Created Board with name QUaxg is open ": true,
+					"Premission level of Board with name QUaxg is private ": true,
+					"Created Board with name QUaxg Can Be Public ": true,
+					"Created Board with name QUaxg Can Invite ": true
+				}
+			]
+		},
+		{
+			"id": "de6ce1cc-6f33-49ee-8b89-b27c97678834",
+			"name": "Get Open Boards",
+			"url": "https://api.trello.com/1/members/me?boards=open&key=2ad662f7bb7b15d002a47937f855f462&token=12b294f47feb8ef6dc3092fbc4f76fe03a22edb5447a7ca26b2218daa1166bf6",
+			"time": 256,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Number of open boards is : 3": true,
+				"Get and Store first and Last Board ID ": true
+			},
+			"testPassFailCounts": {
+				"Number of open boards is : 3": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get and Store first and Last Board ID ": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				256
+			],
+			"allTests": [
+				{
+					"Number of open boards is : 3": true,
+					"Get and Store first and Last Board ID ": true
+				}
+			]
+		},
+		{
+			"id": "38612a78-e913-470f-a1e3-be51c95ff8cb",
+			"name": "Create New List",
+			"url": "https://api.trello.com/1/lists?name=Yz81E&idBoard=630ff00b5312cf0337f3807b&key=2ad662f7bb7b15d002a47937f855f462&token=12b294f47feb8ef6dc3092fbc4f76fe03a22edb5447a7ca26b2218daa1166bf6",
+			"time": 310,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response Contain id, name , idBoard ": true,
+				"Close Parameter is false ": true,
+				"Limit Parameter is null ": true
+			},
+			"testPassFailCounts": {
+				"Response Contain id, name , idBoard ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Close Parameter is false ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Limit Parameter is null ": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				310
+			],
+			"allTests": [
+				{
+					"Response Contain id, name , idBoard ": true,
+					"Close Parameter is false ": true,
+					"Limit Parameter is null ": true
+				}
+			]
+		},
+		{
+			"id": "f84a1309-9428-41ec-9d7f-5c37a1b17b69",
+			"name": "Get Lists on a Board",
+			"url": "https://api.trello.com/1/boards/630ffc46520b3300e37de240/lists?key=2ad662f7bb7b15d002a47937f855f462&token=12b294f47feb8ef6dc3092fbc4f76fe03a22edb5447a7ca26b2218daa1166bf6",
+			"time": 227,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Number of Lists is 3 ": true,
+				"Store first and last list ID ": true
+			},
+			"testPassFailCounts": {
+				"Number of Lists is 3 ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Store first and last list ID ": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				227
+			],
+			"allTests": [
+				{
+					"Number of Lists is 3 ": true,
+					"Store first and last list ID ": true
+				}
+			]
+		},
+		{
+			"id": "9b3d8dbf-67a2-42ac-84c1-e594a3a66939",
+			"name": "Archive or unarchive a list",
+			"url": "https://api.trello.com/1/lists/630ffc46520b3300e37de247/closed?key=2ad662f7bb7b15d002a47937f855f462&token=12b294f47feb8ef6dc3092fbc4f76fe03a22edb5447a7ca26b2218daa1166bf6&value=true",
+			"time": 611,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Closed is True ": true,
+				"Response Header include Set-Cookie ": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Closed is True ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response Header include Set-Cookie ": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				611
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Closed is True ": true,
+					"Response Header include Set-Cookie ": true
+				}
+			]
+		},
+		{
+			"id": "1222dc31-20c3-42d4-a064-8b350918e328",
+			"name": "Delete Board",
+			"url": "https://api.trello.com/1/boards/630ffc46520b3300e37de240?key=2ad662f7bb7b15d002a47937f855f462&token=12b294f47feb8ef6dc3092fbc4f76fe03a22edb5447a7ca26b2218daa1166bf6",
+			"time": 539,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Meaningful response message ": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Meaningful response message ": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				539
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Meaningful response message ": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3005,
+	"collection": {
+		"requests": [
+			{
+				"id": "5f6dddf1-ee5a-4470-a96c-cb14ff30b5d4",
+				"method": "GET"
+			},
+			{
+				"id": "6941a0a8-00bc-4b98-84e1-f79661212759",
+				"method": "POST"
+			},
+			{
+				"id": "de6ce1cc-6f33-49ee-8b89-b27c97678834",
+				"method": "GET"
+			},
+			{
+				"id": "38612a78-e913-470f-a1e3-be51c95ff8cb",
+				"method": "POST"
+			},
+			{
+				"id": "f84a1309-9428-41ec-9d7f-5c37a1b17b69",
+				"method": "GET"
+			},
+			{
+				"id": "9b3d8dbf-67a2-42ac-84c1-e594a3a66939",
+				"method": "PUT"
+			},
+			{
+				"id": "1222dc31-20c3-42d4-a064-8b350918e328",
+				"method": "DELETE"
+			}
+		]
+	}
+}

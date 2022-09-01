@@ -1,0 +1,240 @@
+{
+	"id": "f5baf758-54aa-4035-aa2f-b40d84c81331",
+	"name": "Authors",
+	"timestamp": "2022-09-01T01:30:30.057Z",
+	"collection_id": "cf313a7a-4106-4718-9af8-8996cf444ef4",
+	"folder_id": 0,
+	"environment_id": "b9a5ea9f-617b-4197-9cd9-20a9086d5885",
+	"totalPass": 12,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "828e96e8-0480-4b94-9322-2e67246c0b13",
+			"name": "Get All Authors",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 116,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code is OK": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is OK": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				116
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code is OK": true
+				}
+			]
+		},
+		{
+			"id": "a329b5d8-01fa-40af-be16-17c629ffacbe",
+			"name": "Create New Author",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 94,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code is OK": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is OK": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				94
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code is OK": true
+				}
+			]
+		},
+		{
+			"id": "6b97654a-8f47-41f3-9bb1-3775cd69b0af",
+			"name": "Get Author with Book ID",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/85",
+			"time": 93,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code is OK": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is OK": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				93
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code is OK": true
+				}
+			]
+		},
+		{
+			"id": "ae5d9864-a72c-41af-a8f6-3617ad03e819",
+			"name": "Get Author with ID",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/23",
+			"time": 95,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code is OK": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is OK": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				95
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code is OK": true
+				}
+			]
+		},
+		{
+			"id": "587bd019-d755-4d68-b650-f3565919d970",
+			"name": "Update Author with ID",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/80",
+			"time": 97,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code is OK": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is OK": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				97
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code is OK": true
+				}
+			]
+		},
+		{
+			"id": "b742328a-4265-4f8b-a4d1-86bb93936991",
+			"name": "Delete Author with ID",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/23",
+			"time": 93,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code is OK": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is OK": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				93
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code is OK": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 588,
+	"collection": {
+		"requests": [
+			{
+				"id": "828e96e8-0480-4b94-9322-2e67246c0b13",
+				"method": "GET"
+			},
+			{
+				"id": "a329b5d8-01fa-40af-be16-17c629ffacbe",
+				"method": "POST"
+			},
+			{
+				"id": "6b97654a-8f47-41f3-9bb1-3775cd69b0af",
+				"method": "GET"
+			},
+			{
+				"id": "ae5d9864-a72c-41af-a8f6-3617ad03e819",
+				"method": "GET"
+			},
+			{
+				"id": "587bd019-d755-4d68-b650-f3565919d970",
+				"method": "PUT"
+			},
+			{
+				"id": "b742328a-4265-4f8b-a4d1-86bb93936991",
+				"method": "DELETE"
+			}
+		]
+	}
+}

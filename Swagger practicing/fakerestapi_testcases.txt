@@ -1,0 +1,35 @@
+API: GET /api/v1/Authors
+ Test Case: response should be 200 Success
+ Expected Result: 200 Success
+ Actual Result: 200 Success
+ Status: Pass
+
+API: POST /api/v1/Authors
+ Test Case: response should be 200 Success
+ Expected Result: 200 Success
+ Actual Result: 200 Success
+ Status: Pass
+
+API: GET "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/2
+ Test Case: response should be 200 Success
+ Expected Result: 200 Success
+ Actual Result: 200 Success
+ Status: Pass
+
+API: GET "http://fakerestapi.azurewebsites.net/api/v1/Authors/2
+ Test Case: response should be 200 Success
+ Expected Result: 200 Success
+ Actual Result: 200 Success
+ Status: Pass
+
+API: PUT http://fakerestapi.azurewebsites.net/api/v1/Authors/2
+ Test Case: response should be 200 Success
+ Expected Result: 200 Success
+ Actual Result: 200 Success
+ Status: Pass
+
+API: DELETE http://fakerestapi.azurewebsites.net/api/v1/Authors/2
+ Test Case: response should be 200 Success
+ Expected Result: 200 Success
+ Actual Result: 200 Success
+ Status: Pass
