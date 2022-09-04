@@ -1,32 +1,120 @@
 API: GET /api/v1/Authors
- Test Case: response should be 200 Success
- Expected Result: 200 Success
- Actual Result: 200 Success
+ Test Case001: Response code should be 200
+ Expected Result: 200 
+ Actual Result: 200 
  Status: Pass
+
+ Test Case002: Response should be Success
+ Expected Result: Success
+ Actual Result:   OK
+ Status: Fail
+
+ Test Case003: Response should contain id
+ Expected Result: Response object contain id
+ Actual Result: response object contain id
+ Status: Pass
+
+ Test Case004: Response should contain idBook
+ Expected Result: Response object contain id
+ Actual Result: response object contain id
+ Status: Pass
+
+ Test Case005: Response should contain firstName
+ Expected Result: Response object contain firstName
+ Actual Result: response object contain firstName
+ Status: Pass
+
+ Test Case006: Response should contain lastName
+ Expected Result: Response object contain lastName
+ Actual Result: response object contain lastName
+ Status: Pass
+
+ Test Case007: Response should not include null values
+ Expected Result: Response List include objects without null values
+ Actual Result: Response List include objects without null values
+ Status: Pass
+====================================================================================================================================================
 
 API: POST /api/v1/Authors
- Test Case: response should be 200 Success
- Expected Result: 200 Success
- Actual Result: 200 Success
+ Test Case001: Response Code should be 201
+ Expected Result: 201 
+ Actual Result: 200 
+ Status: Fail
+
+ Test Case002: Response Status should be Created
+ Expected Result: Created 
+ Actual Result: OK 
+ Status: Fail
+
+ Test Case003: Add New Author without firstname 
+ Expected Result: Response Status Code to be 400 
+ Actual Result: 400
  Status: Pass
+
+ Test Case003: Add New Author without lastname 
+ Expected Result: Response Status Code to be 400 
+ Actual Result: 400 
+ Status: Pass
+
+========================================================================================================================================
 
 API: GET "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/2
- Test Case: response should be 200 Success
- Expected Result: 200 Success
- Actual Result: 200 Success
+ Test Case001: Response Code should be 200
+ Expected Result: 200
+ Actual Result: 200
  Status: Pass
 
-API: GET "http://fakerestapi.azurewebsites.net/api/v1/Authors/2
- Test Case: response should be 200 Success
- Expected Result: 200 Success
- Actual Result: 200 Success
+ Test Case002: Response Status should be OK
+ Expected Result: OK
+ Actual Result: OK
  Status: Pass
+
+ Test Case002: Response Should contain idBook 2
+ Expected Result: Response object contain same search idBook
+ Actual Result: Response object contain same search idBook
+ Status: Pass
+
+=========================================================================================================================================
 
 API: PUT http://fakerestapi.azurewebsites.net/api/v1/Authors/2
- Test Case: response should be 200 Success
- Expected Result: 200 Success
- Actual Result: 200 Success
+ Test Case001: Response Code should be 200
+ Expected Result: 200 
+ Actual Result: 200 
  Status: Pass
+
+ Test Case002: First Name Updated Correctly
+ Expected Result: Response object contain new first name 
+ Actual Result: Response object contain new first name 
+ Status: Pass
+
+ Test Case003: Last Name Updated Correctly
+ Expected Result: Response object contain new last name 
+ Actual Result: Response object contain new last name 
+ Status: Pass
+ =========================================================================================================================================
+
+API: GET "http://fakerestapi.azurewebsites.net/api/v1/Authors/2
+ Test Case001: Response Code should be 200 
+ Expected Result: 200 
+ Actual Result: 200 
+ Status: Pass
+
+ Test Case002: Response Status should be OK
+ Expected Result: OK 
+ Actual Result: OK 
+ Status: Pass
+
+ Test Case003: Check Firstname updated correctly
+ Expected Result: Response object contain new first name 
+ Actual Result: Response Object not include new first name 
+ Status: Fail
+
+ Test Case004: Check Lastname updated correctly
+ Expected Result: Response object contain new last name 
+ Actual Result: Response Object not include new last name 
+ Status: Fail
+
+========================================================================================================================================
 
 API: DELETE http://fakerestapi.azurewebsites.net/api/v1/Authors/2
  Test Case: response should be 200 Success

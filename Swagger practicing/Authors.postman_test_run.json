@@ -1,43 +1,73 @@
 {
-	"id": "f5baf758-54aa-4035-aa2f-b40d84c81331",
+	"id": "5dcdc057-929a-4530-85a6-a7528dda1570",
 	"name": "Authors",
-	"timestamp": "2022-09-01T01:30:30.057Z",
+	"timestamp": "2022-09-04T12:38:09.372Z",
 	"collection_id": "cf313a7a-4106-4718-9af8-8996cf444ef4",
 	"folder_id": 0,
 	"environment_id": "b9a5ea9f-617b-4197-9cd9-20a9086d5885",
-	"totalPass": 12,
-	"totalFail": 0,
+	"totalPass": 18,
+	"totalFail": 5,
 	"results": [
 		{
 			"id": "828e96e8-0480-4b94-9322-2e67246c0b13",
 			"name": "Get All Authors",
 			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
-			"time": 116,
+			"time": 489,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
 				"Status code is 200": true,
-				"Status code is OK": true
+				"Status code is Success": false,
+				"Response Object Contain id ": true,
+				"Response Object Contain idBook ": true,
+				"Response Object Contain firstName ": true,
+				"Response Object Contain lastName ": true,
+				"check all returned data for null values": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
 					"pass": 1,
 					"fail": 0
 				},
-				"Status code is OK": {
+				"Status code is Success": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response Object Contain id ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response Object Contain idBook ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response Object Contain firstName ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response Object Contain lastName ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check all returned data for null values": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				116
+				489
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
-					"Status code is OK": true
+					"Status code is Success": false,
+					"Response Object Contain id ": true,
+					"Response Object Contain idBook ": true,
+					"Response Object Contain firstName ": true,
+					"Response Object Contain lastName ": true,
+					"check all returned data for null values": true
 				}
 			]
 		},
@@ -45,47 +75,54 @@
 			"id": "a329b5d8-01fa-40af-be16-17c629ffacbe",
 			"name": "Create New Author",
 			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
-			"time": 94,
+			"time": 490,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 400,
+				"name": "Bad Request"
 			},
 			"tests": {
-				"Status code is 200": true,
-				"Status code is OK": true
+				"Status code is 201": false,
+				"Status code is Created": false,
+				"Create new Author without firstname": true
 			},
 			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
+				"Status code is 201": {
+					"pass": 0,
+					"fail": 1
 				},
-				"Status code is OK": {
+				"Status code is Created": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Create new Author without firstname": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				94
+				490
 			],
 			"allTests": [
 				{
-					"Status code is 200": true,
-					"Status code is OK": true
+					"Status code is 201": false,
+					"Status code is Created": false,
+					"Create new Author without firstname": true
 				}
 			]
 		},
 		{
 			"id": "6b97654a-8f47-41f3-9bb1-3775cd69b0af",
 			"name": "Get Author with Book ID",
-			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/85",
-			"time": 93,
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/42",
+			"time": 267,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
 				"Status code is 200": true,
-				"Status code is OK": true
+				"Status code is OK": true,
+				"Response should include idBook 42": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
@@ -95,48 +132,20 @@
 				"Status code is OK": {
 					"pass": 1,
 					"fail": 0
-				}
-			},
-			"times": [
-				93
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"Status code is OK": true
-				}
-			]
-		},
-		{
-			"id": "ae5d9864-a72c-41af-a8f6-3617ad03e819",
-			"name": "Get Author with ID",
-			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/23",
-			"time": 95,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"Status code is OK": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
 				},
-				"Status code is OK": {
+				"Response should include idBook 42": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				95
+				267
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
-					"Status code is OK": true
+					"Status code is OK": true,
+					"Response should include idBook 42": true
 				}
 			]
 		},
@@ -144,14 +153,16 @@
 			"id": "587bd019-d755-4d68-b650-f3565919d970",
 			"name": "Update Author with ID",
 			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/80",
-			"time": 97,
+			"time": 259,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
 				"Status code is 200": true,
-				"Status code is OK": true
+				"Status code is OK": true,
+				"First Name updated correctlty": true,
+				"Last Name updated correctlty": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
@@ -161,23 +172,78 @@
 				"Status code is OK": {
 					"pass": 1,
 					"fail": 0
+				},
+				"First Name updated correctlty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Last Name updated correctlty": {
+					"pass": 1,
+					"fail": 0
 				}
 			},
 			"times": [
-				97
+				259
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
-					"Status code is OK": true
+					"Status code is OK": true,
+					"First Name updated correctlty": true,
+					"Last Name updated correctlty": true
+				}
+			]
+		},
+		{
+			"id": "ae5d9864-a72c-41af-a8f6-3617ad03e819",
+			"name": "Get Author with ID",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/80",
+			"time": 166,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code is OK": true,
+				"First Name Updated Correctly": false,
+				"Last Name Updated Correctly": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"First Name Updated Correctly": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Last Name Updated Correctly": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				166
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code is OK": true,
+					"First Name Updated Correctly": false,
+					"Last Name Updated Correctly": false
 				}
 			]
 		},
 		{
 			"id": "b742328a-4265-4f8b-a4d1-86bb93936991",
 			"name": "Delete Author with ID",
-			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/23",
-			"time": 93,
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/29",
+			"time": 175,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -197,7 +263,7 @@
 				}
 			},
 			"times": [
-				93
+				175
 			],
 			"allTests": [
 				{
@@ -208,7 +274,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 588,
+	"totalTime": 1846,
 	"collection": {
 		"requests": [
 			{
@@ -224,12 +290,12 @@
 				"method": "GET"
 			},
 			{
-				"id": "ae5d9864-a72c-41af-a8f6-3617ad03e819",
-				"method": "GET"
-			},
-			{
 				"id": "587bd019-d755-4d68-b650-f3565919d970",
 				"method": "PUT"
+			},
+			{
+				"id": "ae5d9864-a72c-41af-a8f6-3617ad03e819",
+				"method": "GET"
 			},
 			{
 				"id": "b742328a-4265-4f8b-a4d1-86bb93936991",
