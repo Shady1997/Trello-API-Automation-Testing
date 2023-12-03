@@ -328,6 +328,11 @@
 									"pm.test(\"Response Header include Set-Cookie \",function(){\r",
 									"    pm.expect(pm.response.headers.has(\"Set-Cookie\"),true);\r",
 									"    pm.expect(pm.response.headers.get(\"Set-Cookie\")).to.contain(\"isEnterpriseAdmin%3Dfalse\");\r",
+									"});\r",
+									"//check response header include Set-Cookie\r",
+									"pm.test(\"Response Header include Set-Cookie \",function(){\r",
+									"    pm.expect(pm.response.headers.has(\"Set-Cookie\"),true);\r",
+									"    pm.expect(pm.response.headers.get(\"Set-Cookie\")).to.contain(\"isEnterpriseAdmin%3Dfalse\");\r",
 									"});"
 								],
 								"type": "text/javascript"
