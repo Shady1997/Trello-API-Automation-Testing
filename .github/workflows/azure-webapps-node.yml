@@ -23,5 +23,4 @@ jobs:
         run: npm install -g newman-reporter-htmlextra
 
       - name: Run Automated Project using Newman and generate Report using htmlextra
-        run: cd "Trello's APIs testing" ; ls ; newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" --reporters=cli,htmlextra ; newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" -r htmlextra --reporter-htmlextra-export ../index.html ; cd results ; ls
-     
+        run: cd "Trello's APIs testing" ; ls ; newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" --reporters=cli,htmlextra ; newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" -r htmlextra --reporter-htmlextra-export ../index.html ; cd .. ; ls  
