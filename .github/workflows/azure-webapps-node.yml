@@ -55,4 +55,3 @@ jobs:
       #     attachments: attachments.zip,git.diff,./dist/static/*.js
       #     priority: low
 
-
