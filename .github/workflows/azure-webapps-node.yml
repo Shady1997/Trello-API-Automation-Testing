@@ -32,10 +32,10 @@ jobs:
           cd ..
           ls
       - name: Deploy to GH Pages 🚀
-        uses: peaceiris/actions-github-pages@v3.1.12
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: public
+          publish_dir: ./public
 
       # - name: Send mail
       #   uses: dawidd6/action-send-mail@v3.9.0
