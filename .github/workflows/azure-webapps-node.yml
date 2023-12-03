@@ -32,28 +32,28 @@ jobs:
           cd ..
           ls
 
-      - name: Send mail
-        uses: dawidd6/action-send-mail@v3.9.0
-        with:
-          connection_url: ${{secrets.MAIL_CONNECTION}}
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{secrets.MAIL_USERNAME}}
-          password: ${{secrets.MAIL_PASSWORD}}
-          subject: Github Actions job result
-          to: shadyahmedmohamed97@gmail.com
-          from: Shady Ahmed
-          body: Build job of ${{github.repository}} completed successfully!
-          html_body: report.html
-          cc: shadyahmed9719@gmail.com
-          bcc: shadyahmed9719@gmail.com
-          reply_to: shadyahmedmohamed97@gmail.com
-          in_reply_to: shadyahmedmohamed97@gmail.com
-          ignore_cert: true
-          convert_markdown: true
-          attachments: attachments.zip,git.diff,./dist/static/*.js
-          priority: low
+      # - name: Send mail
+      #   uses: dawidd6/action-send-mail@v3.9.0
+      #   with:
+      #     connection_url: ${{secrets.MAIL_CONNECTION}}
+      #     server_address: smtp.gmail.com
+      #     server_port: 465
+      #     secure: true
+      #     username: ${{secrets.MAIL_USERNAME}}
+      #     password: ${{secrets.MAIL_PASSWORD}}
+      #     subject: Github Actions job result
+      #     to: shadyahmedmohamed97@gmail.com
+      #     from: Shady Ahmed
+      #     body: Build job of ${{github.repository}} completed successfully!
+      #     html_body: report.html
+      #     cc: shadyahmed9719@gmail.com
+      #     bcc: shadyahmed9719@gmail.com
+      #     reply_to: shadyahmedmohamed97@gmail.com
+      #     in_reply_to: shadyahmedmohamed97@gmail.com
+      #     ignore_cert: true
+      #     convert_markdown: true
+      #     attachments: attachments.zip,git.diff,./dist/static/*.js
+      #     priority: low
 
 
 
