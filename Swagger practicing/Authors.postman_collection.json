@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "cf313a7a-4106-4718-9af8-8996cf444ef4",
+		"name": "Authors",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Authors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//check return status is 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//check return status is Success\r",
+							"pm.test(\"Status code is Success\", function () {\r",
+							"    pm.response.to.have.status(\"Success\");\r",
+							"});\r",
+							"// check returnd object contain id\r",
+							"pm.test(\"Response Object Contain id \",function(){\r",
+							"    pm.expect(pm.response.text()).to.contain(\"id\");\r",
+							"});\r",
+							"// check returnd object contain idBook\r",
+							"pm.test(\"Response Object Contain idBook \",function(){\r",
+							"    pm.expect(pm.response.text()).to.contain(\"idBook\");\r",
+							"});\r",
+							"// check returnd object contain firstName\r",
+							"pm.test(\"Response Object Contain firstName \",function(){\r",
+							"    pm.expect(pm.response.text()).to.contain(\"firstName\");\r",
+							"});\r",
+							"// check returnd object contain lastName\r",
+							"pm.test(\"Response Object Contain lastName \",function(){\r",
+							"    pm.expect(pm.response.text()).to.contain(\"lastName\");\r",
+							"});\r",
+							"// check all returned data for null values\r",
+							"pm.test(\"check all returned data for null values\",function(){\r",
+							"    //loop over all response\r",
+							"    for(i=0;i<pm.response.json().length;i++)\r",
+							"    {\r",
+							"        pm.expect(pm.response.json()[i].id).not.eql(\"\");\r",
+							"        pm.expect(pm.response.json()[i].idBook).not.eql(\"\");\r",
+							"        pm.expect(pm.response.json()[i].firstName).not.eql(\"\");\r",
+							"        pm.expect(pm.response.json()[i].lastName).not.eql(\"\");\r",
+							"    }\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/Authors",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Author",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function makeid(length) {\r",
+							"    var result           = '';\r",
+							"    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
+							"    var charactersLength = characters.length;\r",
+							"    for ( var i = 0; i < length; i++ ) {\r",
+							"      result += characters.charAt(Math.floor(Math.random() * \r",
+							" charactersLength));\r",
+							"   }\r",
+							"   return result;\r",
+							"}\r",
+							"pm.collectionVariables.set(\"firstName\",makeid(5));\r",
+							"pm.collectionVariables.set(\"lastName\",makeid(5));\r",
+							"pm.collectionVariables.set(\"authorID\",Math.floor(Math.random() * 100));\r",
+							"pm.collectionVariables.set(\"bookID\",Math.floor(Math.random() * 100));"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//check return status is 201\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"//check return status is Created\r",
+							"pm.test(\"Status code is Created\", function () {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});\r",
+							"//Create new User without firstname\r",
+							"pm.test(\"Create new Author without firstname\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{authorID}},\r\n  \"idBook\": {{bookID}},\r\n//   \"firstName\": \"{{firstName}}\",\r\n  \"lastName\": \"{{lastName}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/Authors",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Author with Book ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//check return status is 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//check return status is OK\r",
+							"pm.test(\"Status code is OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"//check response contain idBook as search parameter\r",
+							"pm.test(\"Response should include idBook \"+pm.collectionVariables.get(\"bookID\"),function(){\r",
+							"    for(i=0;i,i<pm.response.json.length;i++){\r",
+							"    pm.expect(pm.response.json()[i].idBook).to.eql(pm.collectionVariables.get(\"bookID\"));\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/Authors/authors/books/{{bookID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"authors",
+						"books",
+						"{{bookID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Author with ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//check return status is 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//check return status is OK\r",
+							"pm.test(\"Status code is OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"//Check first name updated correctly\r",
+							"pm.test(\"First Name updated correctlty\",function(){\r",
+							"    pm.expect(pm.response.json().firstName).to.eql(\"string\");\r",
+							"});\r",
+							"//Check last name updated correctly\r",
+							"pm.test(\"Last Name updated correctlty\",function(){\r",
+							"    pm.expect(pm.response.json().lastName).to.eql(\"string\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"idBook\": 0,\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/Authors/80",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"80"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Author with ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//check return status is 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//check return status is OK\r",
+							"pm.test(\"Status code is OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"//check first name updated correctly\r",
+							"pm.test(\"First Name Updated Correctly\",function(){\r",
+							"    pm.expect(pm.response.jsonp().firstName).to.eql(\"String\");\r",
+							"});\r",
+							"//check last name updated correctly\r",
+							"pm.test(\"Last Name Updated Correctly\",function(){\r",
+							"    pm.expect(pm.response.jsonp().lastName).to.eql(\"String\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/Authors/80",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"80"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Author with ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//check return status is 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//check return status is OK\r",
+							"pm.test(\"Status code is OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/Authors/{{authorID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"{{authorID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "5c33f0b4-015b-41ef-b741-91227bc0f63e",
+			"key": "authorID",
+			"value": ""
+		},
+		{
+			"id": "d846c7db-0563-4507-9b35-c79d2de5887b",
+			"key": "bookID",
+			"value": ""
+		},
+		{
+			"id": "614501f1-fe31-4e5b-a65a-4651920da641",
+			"key": "firstName",
+			"value": ""
+		},
+		{
+			"id": "173d9077-9091-434a-9567-8c444e090810",
+			"key": "lastName",
+			"value": ""
+		}
+	]
+}
