@@ -36,6 +36,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          
 
       # - name: Send mail
       #   uses: dawidd6/action-send-mail@v3.9.0
