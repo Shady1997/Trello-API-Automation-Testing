@@ -15,5 +15,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-      - name: Install dependencies
-        run: npm install
+      - name: Install Newman
+        run: npm install -g newman
+      - name: Install Newman htmlextra
+        run: npm install -g newman-reporter-htmlextra
+      - name: run Automation project
+        run: newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" --reporters=cli,htmlextra
