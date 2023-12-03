@@ -19,5 +19,7 @@ jobs:
         run: npm install -g newman
       - name: Install Newman htmlextra
         run: npm install -g newman-reporter-htmlextra
+      - name: change directory into the project folder
+        run: cd "Trello's APIs testing"
       - name: run Automation project
         run: newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" --reporters=cli,htmlextra
