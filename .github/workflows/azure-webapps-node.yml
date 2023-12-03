@@ -15,13 +15,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
+          
       - name: Install Newman
         run: npm install -g newman
+        
       - name: Install Newman htmlextra
         run: npm install -g newman-reporter-htmlextra
-      # - name: change directory into the project folder
-      #   run: cd "Trello's APIs testing"
-      - name: list folder components
+
+      - name: Run Automated Project using Newman and generate Report using htmlextra
         run: cd "Trello's APIs testing" ; ls ; newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" --reporters=cli,htmlextra ; newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" -r htmlextra --reporter-htmlextra-export ./results/report.html ; cd results ; ls
-      # - name: run Automation project
-      #   run: newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" --reporters=cli,htmlextra
+     
