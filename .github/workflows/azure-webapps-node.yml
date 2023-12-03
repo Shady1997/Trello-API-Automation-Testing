@@ -31,6 +31,11 @@ jobs:
           newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" -r htmlextra --reporter-htmlextra-export ../index.html
           cd ..
           ls
+      - name: Deploy to GH Pages 🚀
+        uses: peaceiris/actions-github-pages@v3.1.12
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public
 
       # - name: Send mail
       #   uses: dawidd6/action-send-mail@v3.9.0
