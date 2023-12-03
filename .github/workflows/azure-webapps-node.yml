@@ -31,6 +31,10 @@ jobs:
           newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" -r htmlextra --reporter-htmlextra-export ../index.html
           cd ..
           ls
+          mkdir .public
+          cp -r * .public
+          mv .public public
+
       - name: Deploy to GH Pages 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
