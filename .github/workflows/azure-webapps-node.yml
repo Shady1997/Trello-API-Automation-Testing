@@ -11,16 +11,49 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-          
+
       - name: Install Newman
         run: npm install -g newman
-        
+
       - name: Install Newman htmlextra
         run: npm install -g newman-reporter-htmlextra
 
       - name: Run Automated Project using Newman and generate Report using htmlextra
-        run: cd "Trello's APIs testing" ; ls ; newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" --reporters=cli,htmlextra ; newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" -r htmlextra --reporter-htmlextra-export ../index.html ; cd .. ; ls  
+        run: |
+          cd "Trello's APIs testing"
+          ls
+          newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" --reporters=cli,htmlextra
+          newman run "Test-TRELLO-REST-APIs.postman_collection.json" -e "Trello-APIs.postman_environment.json" -r htmlextra --reporter-htmlextra-export ../index.html
+          cd ..
+          ls
+
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3.9.0
+        with:
+          connection_url: ${{secrets.MAIL_CONNECTION}}
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Github Actions job result
+          to: shadyahmedmohamed97@gmail.com
+          from: Shady Ahmed
+          body: Build job of ${{github.repository}} completed successfully!
+          html_body: report.html
+          cc: shadyahmed9719@gmail.com
+          bcc: shadyahmed9719@gmail.com
+          reply_to: shadyahmedmohamed97@gmail.com
+          in_reply_to: shadyahmedmohamed97@gmail.com
+          ignore_cert: true
+          convert_markdown: true
+          attachments: attachments.zip,git.diff,./dist/static/*.js
+          priority: low
+
+
+
